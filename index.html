@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MKY Holding - Geleceğe Yön Veren Güç</title>
+    <meta name="description" content="MKY Holding, bankacılık, havacılık, alkollü içecekler ve yazılım sektörlerinde faaliyet gösteren, 75.000'den fazla çalışanıyla halkın yanında yer alan global bir holding şirketidir.">
+    <meta name="keywords" content="MKY Holding, holding, bankacılık, havacılık, alkollü içecekler, yazılım, MKY Bank, MKY Airlines, MKY Beverages, Kaantech Software, yatırım, iş ortaklığı, kariyer">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS with Custom Configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Enable dark mode based on 'dark' class on HTML
+            theme: {
+                extend: {
+                    colors: {
+                        // Primary and its variations
+                        'mky-primary': '#5F7BEC', // Vibrant blue-violet
+                        'mky-primary-darker': '#4A6BD8', // Darker blue for hover/emphasis
+                        'mky-primary-lighter': '#8CAFF5', // Lighter blue for subtle elements
+                        // Accent
+                        'mky-accent': '#EBC96C', // Muted gold/yellow-orange for CTAs
+                        // Backgrounds
+                        'mky-bg-light': '#FFFFFF',
+                        'mky-bg-light-secondary': '#F5F8FC', // Very light blue-gray
+                        'mky-bg-dark': '#1A1A1A', // Deep charcoal gray
+                        'mky-bg-dark-secondary': '#252525', // Slightly lighter dark gray
+                        // Text Colors
+                        'mky-text-light-primary': '#333333',
+                        'mky-text-light-secondary': '#666666',
+                        'mky-text-dark-primary': '#F0F0F0',
+                        'mky-text-dark-secondary': '#B0B0B0',
+                    },
+                    fontFamily: {
+                        heading: ['Playfair Display', 'serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'lg': '8px',
+                        'xl': '12px',
+                        '2xl': '16px',
+                    },
+                    boxShadow: {
+                        'subtle': '0px 4px 12px rgba(0, 0, 0, 0.08)',
+                        'md': '0px 4px 12px rgba(0, 0, 0, 0.08)',
+                        'lg': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                        'xl': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- EmailJS CDN for contact form -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        emailjs.init("PFATyVVqB6dfozezc"); // KEEP THIS PLACEHOLDER
+    </script>
+    
+    <!-- Custom Styles -->
+    <style>
+        .font-heading { font-family: 'Playfair Display', serif; }
+        .font-body { font-family: 'Inter', sans-serif; }
+        .smooth-scroll { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+        /* Adaptive text colors for general elements */
+        .text-primary-light { color: var(--tw-colors-mky-text-light-primary); }
+        .text-secondary-light { color: var(--tw-colors-mky-text-light-secondary); }
+        .text-primary-dark { color: var(--tw-colors-mky-text-dark-primary); }
+        .text-secondary-dark { color: var(--tw-colors-mky-text-dark-secondary); }
+
+        /* Default background colors */
+        body {
+            background-color: theme('colors.mky-bg-light');
+            color: theme('colors.mky-text-light-primary');
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .dark body {
+            background-color: theme('colors.mky-bg-dark');
+            color: theme('colors.mky-text-dark-primary');
+        }
+
+        /* Nav link hover effects */
+        .nav-link.active {
+            color: theme('colors.mky-primary');
+            position: relative;
+        }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 16px); /* Adjust width as needed */
+            height: 2px;
+            background-color: theme('colors.mky-primary');
+            border-radius: 9999px;
+        }
+
+        /* Buttons and interactive elements */
+        .btn-primary {
+            background-color: theme('colors.mky-primary');
+            color: white; /* White is generally good contrast for #5F7BEC */
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: theme('colors.mky-primary-darker');
+            transform: translateY(-2px);
+            box-shadow: theme('boxShadow.lg');
+        }
+        .btn-secondary {
+            border: 2px solid theme('colors.mky-primary');
+            color: theme('colors.mky-primary');
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: theme('colors.mky-primary');
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: theme('boxShadow.lg');
+        }
+
+        /* Mobile menu specific styles */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-out;
+        }
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: currentColor;
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+        .hamburger span:not(:last-child) {
+            margin-bottom: 5px;
+        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+
+        /* Card hover effects */
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: theme('boxShadow.xl');
+        }
+
+        /* Timeline specific styles */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: theme('colors.mky-primary-lighter');
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+        @media (max-width: 767px) {
+            .timeline::before {
+                left: 15px; /* Adjust for mobile padding */
+            }
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .timeline-item:nth-child(odd) { flex-direction: row-reverse; } /* Alternate left/right */
+        .timeline-item-content {
+            background-color: theme('colors.mky-bg-light-secondary');
+            padding: 24px;
+            border-radius: 8px;
+            width: calc(50% - 40px); /* Account for circle size + gap */
+            box-shadow: theme('boxShadow.md');
+            transition: background-color 0.3s ease;
+        }
+        .dark .timeline-item-content {
+            background-color: theme('colors.mky-bg-dark-secondary');
+        }
+        .timeline-item-circle {
+            width: 40px;
+            height: 40px;
+            background-color: theme('colors.mky-primary');
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 1;
+            box-shadow: theme('boxShadow.md');
+        }
+        @media (max-width: 767px) {
+            .timeline-item { flex-direction: column; align-items: flex-start; }
+            .timeline-item-content { width: calc(100% - 60px); margin-left: 60px; }
+            .timeline-item-circle { left: 15px; transform: translateX(0); }
+            .timeline-item-content::before {
+                content: '';
+                position: absolute;
+                left: 45px;
+                width: 0;
+                height: 0;
+                border-top: 10px solid transparent;
+                border-bottom: 10px solid transparent;
+                border-right: 10px solid theme('colors.mky-bg-light-secondary');
+                transform: translateY(-50%) rotate(0deg);
+                top: 50%;
+            }
+            .dark .timeline-item-content::before {
+                border-right: 10px solid theme('colors.mky-bg-dark-secondary');
+            }
+        }
+    </style>
+</head>
+<body class="font-body smooth-scroll bg-mky-bg-light text-mky-text-light-primary dark:bg-mky-bg-dark dark:text-mky-text-dark-primary" 
+x-data="{ 
+    mobileMenuOpen: false, 
+    darkMode: localStorage.getItem('darkMode') === 'true' || (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches),
+    showBackToTop: false,
+    navbarScrolled: false
+}" 
+x-init="
+    if (darkMode) document.documentElement.classList.add('dark');
+    $watch('darkMode', value => {
+        if (value) {
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('darkMode', 'true');
+        } else {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('darkMode', 'false');
+        }
+    });
+    
+    window.addEventListener('scroll', () => {
+        showBackToTop = window.scrollY > 300;
+        navbarScrolled = window.scrollY > 50; // Change navbar style after 50px scroll
+    });
+">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+        :class="{ 
+            'bg-white/90 dark:bg-mky-bg-dark/90 backdrop-blur-md shadow-md border-b border-gray-200 dark:border-gray-700': navbarScrolled,
+            'bg-transparent border-b-transparent': !navbarScrolled 
+        }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#home" class="font-heading text-2xl font-bold text-mky-primary">
+                        MKY Holding
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="nav-link text-mky-text-light-secondary dark:text-mky-text-dark-secondary hover:text-mky-primary px-3 py-2 text-sm font-medium transition-colors" :class="{'active': $store.activeSection === 'home'}">Ana Sayfa</a>
+                        <a href="#about" class="nav-link text-mky-text-light-secondary dark:text-mky-text-dark-secondary hover:text-mky-primary px-3 py-2 text-sm font-medium transition-colors" :class="{'active': $store.activeSection === 'about'}">Hakkımızda</a>
+                        <a href="#sectors" class="nav-link text-mky-text-light-secondary dark:text-mky-text-dark-secondary hover:text-mky-primary px-3 py-2 text-sm font-medium transition-colors" :class="{'active': $store.activeSection === 'sectors'}">Sektörler</a>
+                        <a href="#milestones" class="nav-link text-mky-text-light-secondary dark:text-mky-text-dark-secondary hover:text-mky-primary px-3 py-2 text-sm font-medium transition-colors" :class="{'active': $store.activeSection === 'milestones'}">Dönüm Noktaları</a>
+                        <a href="#contact" class="nav-link text-mky-text-light-secondary dark:text-mky-text-dark-secondary hover:text-mky-primary px-3 py-2 text-sm font-medium transition-colors" :class="{'active': $store.activeSection === 'contact'}">İletişim</a>
+                        
+                        <!-- Theme Toggle -->
+                        <button @click="darkMode = !darkMode" class="p-2 rounded-lg bg-mky-bg-light-secondary dark:bg-mky-bg-dark-secondary hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Temayı değiştir">
+                            <i class="fas fa-sun text-mky-accent" x-show="darkMode"></i>
+                            <i class="fas fa-moon text-mky-primary" x-show="!darkMode"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center space-x-2">
+                    <!-- Mobile Theme Toggle -->
+                    <button @click="darkMode = !darkMode" class="p-2 rounded-lg bg-mky-bg-light-secondary dark:bg-mky-bg-dark-secondary" aria-label="Temayı değiştir">
+                        <i class="fas fa-sun text-mky-accent" x-show="darkMode"></i>
+                        <i class="fas fa-moon text-mky-primary" x-show="!darkMode"></i>
+                    </button>
+                    
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="hamburger p-2 text-mky-text-light-primary dark:text-mky-text-dark-primary" :class="{ 'active': mobileMenuOpen }" aria-label="Menüyü aç/kapat">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="md:hidden fixed top-16 right-0 h-screen w-64 bg-mky-bg-light dark:bg-mky-bg-dark shadow-xl mobile-menu" :class="{ 'active': mobileMenuOpen }">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" @click="mobileMenuOpen = false" class="block px-3 py-2 text-base font-medium text-mky-text-light-primary dark:text-mky-text-dark-primary hover:text-mky-primary">Ana Sayfa</a>
+                <a href="#about" @click="mobileMenuOpen = false" class="block px-3 py-2 text-base font-medium text-mky-text-light-secondary dark:text-mky-text-dark-secondary hover:text-mky-primary">Hakkımızda</a>
+                <a href="#sectors" @click="mobileMenuOpen = false" class="block px-3 py-2 text-base font-medium text-mky-text-light-secondary dark:text-mky-text-dark-secondary hover:text-mky-primary">Sektörler</a>
+                <a href="#milestones" @click="mobileMenuOpen = false" class="block px-3 py-2 text-base font-medium text-mky-text-light-secondary dark:text-mky-text-dark-secondary hover:text-mky-primary">Dönüm Noktaları</a>
+                <a href="#contact" @click="mobileMenuOpen = false" class="block px-3 py-2 text-base font-medium text-mky-text-light-secondary dark:text-mky-text-dark-secondary hover:text-mky-primary">İletişim</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden bg-center bg-cover" 
+        style="background-image: url('https://images.unsplash.com/photo-1543286392-563b7e78d91c?crop=entropy&cs=tinysrgb&fit=max&fm=webp&q=80&w=1920&h=1080');">
+        <div class="absolute inset-0 bg-mky-primary/40 dark:bg-mky-primary/60"></div> <!-- Subtle overlay for text readability -->
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+            <div data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="font-heading text-4xl md:text-6xl font-bold mb-4 drop-shadow-md">
+                    MKY Holding
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-100 mb-2 max-w-3xl mx-auto drop-shadow">
+                    Geleceğe Yön Veren Güç, Herkesin Yanında.
+                </p>
+                <p class="text-lg md:text-xl font-semibold text-mky-accent mb-8 drop-shadow">
+                    "MKY Holding, herkesin yanındayız, halkın adamıyız."
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#sectors" class="btn-primary">
+                        Sektörlerimizi Keşfet
+                    </a>
+                    <a href="#about" class="btn-secondary text-white border-white hover:text-mky-primary hover:bg-white">
+                        Hakkımızda Daha Fazla Bilgi
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section (Hakkımızda) -->
+    <section id="about" class="py-20 bg-mky-bg-light-secondary dark:bg-mky-bg-dark-secondary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4 text-mky-text-light-primary dark:text-mky-text-dark-primary">Hakkımızda</h2>
+                <p class="text-xl text-mky-text-light-secondary dark:text-mky-text-dark-secondary max-w-3xl mx-auto">
+                    MKY Holding: Güçlü Geçmiş, Parlak Gelecek ve Halk Odaklı Yaklaşım
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <picture>
+                        <source srcset="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=tinysrgb&fit=max&fm=webp&q=80&w=600&h=400" type="image/webp">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600&h=400" 
+                             alt="MKY Holding Ekibi ve İş Ortakları" 
+                             class="rounded-2xl shadow-xl w-full max-w-xl mx-auto hover-lift"
+                             loading="lazy">
+                    </picture>
+                </div>
+                
+                <div data-aos="fade-left">
+                    <h3 class="font-heading text-2xl font-bold mb-6 text-mky-primary">MKY Holding: Gücümüz Halkımızdan Gelir</h3>
+                    <p class="text-mky-text-light-secondary dark:text-mky-text-dark-secondary mb-6 leading-relaxed text-base md:text-lg">
+                        MKY Holding, kurulduğu günden bu yana sürdürülebilir büyüme ve topluma değer katma vizyonuyla faaliyet göstermektedir. Bankacılıktan havacılığa, alkollü içeceklerden yazılıma kadar dört temel sektörde güçlü bir konuma sahip olan holdingimiz, her adımında "halkın adamıyız" felsefesini benimsemiştir. 
+                    </p>
+                    <p class="text-mky-text-light-secondary dark:text-mky-text-dark-secondary mb-6 leading-relaxed text-base md:text-lg">
+                        Toplam <strong class="text-mky-primary">75.000'den fazla çalışanımızla</strong>, her bir bireyin yaşamına dokunan, ekonomik ve sosyal gelişime katkı sağlayan projelere imza atıyoruz. Güven, şeffaflık ve inovasyon temel değerlerimizle, paydaşlarımızla birlikte geleceği inşa ediyoruz.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="text-center p-4 bg-mky-bg-light dark:bg-mky-bg-dark-secondary rounded-lg shadow-subtle">
+                            <div class="text-2xl font-bold text-mky-primary">75.000+</div>
+                            <div class="text-sm text-mky-text-light-secondary dark:text-mky-text-dark-secondary">Çalışan</div>
+                        </div>
+                        <div class="text-center p-4 bg-mky-bg-light dark:bg-mky-bg-dark-secondary rounded-lg shadow-subtle">
+                            <div class="text-2xl font-bold text-mky-primary">4+</div>
+                            <div class="text-sm text-mky-text-light-secondary dark:text-mky-text-dark-secondary">Sektör</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sectors Section (Sektörler) -->
+    <section id="sectors" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4 text-mky-text-light-primary dark:text-mky-text-dark-primary">Sektörlerimiz</h2>
+                <p class="text-xl text-mky-text-light-secondary dark:text-mky-text-dark-secondary max-w-3xl mx-auto">
+                    Çeşitlilik ve İnovasyonla Geleceğe Yön Veriyoruz
+                </p>
+            </div>
+            
+            <!-- Sectors Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Sector Card 1: Banking -->
+                <div class="bg-mky-bg-light dark:bg-mky-bg-dark-secondary p-8 rounded-2xl shadow-subtle hover-lift text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-5xl text-mky-primary mb-4">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-semibold mb-3 text-mky-text-light-primary dark:text-mky-text-dark-primary">MKY Bank</h3>
+                    <p class="text-mky-text-light-secondary dark:text-mky-text-dark-secondary text-sm mb-4">
+                        Modern finansal çözümler ve güvenilir bankacılık hizmetleriyle, her kesimden müşterimize erişilebilir ve yenilikçi çözümler sunuyoruz.
+                    </p>
+                    <a href="#" class="text-mky-primary hover:text-mky-primary-darker font-semibold text-sm">Daha Fazlası <i class="fas fa-arrow-right ml-1 text-xs"></i></a>
+                </div>
+                
+                <!-- Sector Card 2: Airlines -->
+                <div class="bg-mky-bg-light dark:bg-mky-bg-dark-secondary p-8 rounded-2xl shadow-subtle hover-lift text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-5xl text-mky-primary mb-4">
+                        <i class="fas fa-plane-departure"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-semibold mb-3 text-mky-text-light-primary dark:text-mky-text-dark-primary">MKY Airlines</h3>
+                    <p class="text-mky-text-light-secondary dark:text-mky-text-dark-secondary text-sm mb-4">
+                        Küresel ağımız ve üstün hizmet kalitemizle, güvenli ve konforlu seyahat deneyimleri sunarak, havacılık sektörüne öncülük ediyoruz.
+                    </p>
+                    <a href="#" class="text-mky-primary hover:text-mky-primary-darker font-semibold text-sm">Daha Fazlası <i class="fas fa-arrow-right ml-1 text-xs"></i></a>
+                </div>
+                
+                <!-- Sector Card 3: Alcoholic Beverages -->
+                <div class="bg-mky-bg-light dark:bg-mky-bg-dark-secondary p-8 rounded-2xl shadow-subtle hover-lift text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-5xl text-mky-primary mb-4">
+                        <i class="fas fa-wine-glass-alt"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-semibold mb-3 text-mky-text-light-primary dark:text-mky-text-dark-primary">MKY Beverages</h3>
+                    <p class="text-mky-text-light-secondary dark:text-mky-text-dark-secondary text-sm mb-4">
+                        Kaliteli ve yenilikçi ürün yelpazemizle, içecek sektöründe tüketicilerin tercih ettiği markaları bünyemizde barındırıyor, lezzete değer katıyoruz.
+                    </p>
+                    <a href="#" class="text-mky-primary hover:text-mky-primary-darker font-semibold text-sm">Daha Fazlası <i class="fas fa-arrow-right ml-1 text-xs"></i></a>
+                </div>
+                
+                <!-- Sector Card 4: Software -->
+                <div class="bg-mky-bg-light dark:bg-mky-bg-dark-secondary p-8 rounded-2xl shadow-subtle hover-lift text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-5xl text-mky-primary mb-4">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-semibold mb-3 text-mky-text-light-primary dark:text-mky-text-dark-primary">Kaantech Software</h3>
+                    <p class="text-mky-text-light-secondary dark:text-mky-text-dark-secondary text-sm mb-4">
+                        Yapay zeka ve ileri teknoloji çözümlerimizle, dijital dönüşümde öncü rol oynuyor, geleceğin yazılımlarını bugün inşa ediyoruz.
+                    </p>
+                    <a href="#" class="text-mky-primary hover:text-mky-primary-darker font-semibold text-sm">Daha Fazlası <i class="fas fa-arrow-right ml-1 text-xs"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Milestones Section (Dönüm Noktaları) -->
+    <section id="milestones" class="py-20 bg-mky-bg-light-secondary dark:bg-mky-bg-dark-secondary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4 text-mky-text-light-primary dark:text-mky-text-dark-primary">Dönüm Noktaları</h2>
+                <p class="text-xl text-mky-text-light-secondary dark:text-mky-text-dark-secondary max-w-3xl mx-auto">
+                    MKY Holding'in Büyüme ve Başarı Hikayesi
+                </p>
+            </div>
+            
+            <div class="timeline">
+                <!-- Milestone 2007 -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="timeline-item-content text-mky-text-light-primary dark:text-mky-text-dark-primary">
+                        <h3 class="font-semibold text-lg mb-2">MKY Holding Kuruldu</h3>
+                        <p class="text-mky-text-light-secondary dark:text-mky-text-dark-secondary">Çeşitli sektörlerde faaliyet gösterme vizyonuyla MKY Holding'in temelleri atıldı.</p>
+                    </div>
+                    <div class="timeline-item-circle">2007</div>
+                </div>
+
+                <!-- Milestone 2009 -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="timeline-item-content text-mky-text-light-primary dark:text-mky-text-dark-primary">
+                        <h3 class="font-semibold text-lg mb-2">Adana Bomonti Fabrikası Kuruldu</h3>
+                        <p class="text-mky-text-light-secondary dark:text-mky-text-dark-secondary">İçecek sektöründeki ilk büyük yatırımımız olan modern üretim tesisimiz faaliyete geçti.</p>
+                    </div>
+                    <div class="timeline-item-circle">2009</div>
+                </div>
+
+                <!-- Milestone 2013 -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="timeline-item-content text-mky-text-light-primary dark:text-mky-text-dark-primary">
+                        <h3 class="font-semibold text-lg mb-2">THY (Türk Hava Yolları) Satın Alındı</h3>
+                        <p class="text-mky-text-light-secondary dark:text-mky-text-dark-secondary">Havacılık sektörüne güçlü bir giriş yaparak, Türkiye'nin ve dünyanın önde gelen havayolu şirketlerinden biri bünyemize katıldı.</p>
+                    </div>
+                    <div class="timeline-item-circle">2013</div>
+                </div>
+
+                <!-- Milestone 2014 -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="timeline-item-content text-mky-text-light-primary dark:text-mky-text-dark-primary">
+                        <h3 class="font-semibold text-lg mb-2">Ataşehir'de MKY Bank Kuruldu</h3>
+                        <p class="text-mky-text-light-secondary dark:text-mky-text-dark-secondary">Finans sektöründeki varlığımızı güçlendiren, modern bankacılık anlayışıyla hizmet veren MKY Bank kuruldu.</p>
+                    </div>
+                    <div class="timeline-item-circle">2014</div>
+                </div>
+
+                <!-- Milestone 2016 -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="500">
+                    <div class="timeline-item-content text-mky-text-light-primary dark:text-mky-text-dark-primary">
+                        <h3 class="font-semibold text-lg mb-2">Kaantech Software Kuruldu</h3>
+                        <p class="text-mky-text-light-secondary dark:text-mky-text-dark-secondary">Yazılım ve teknoloji alanındaki yatırımlarımız için Kaantech Software şirketimiz faaliyete geçti.</p>
+                    </div>
+                    <div class="timeline-item-circle">2016</div>
+                </div>
+
+                <!-- Milestone 2019 -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="600">
+                    <div class="timeline-item-content text-mky-text-light-primary dark:text-mky-text-dark-primary">
+                        <h3 class="font-semibold text-lg mb-2">Yazılım Şirketi Genel Merkezi Dubai'ye Taşındı</h3>
+                        <p class="text-mky-text-light-secondary dark:text-mky-text-dark-secondary">Kaantech Software'ın global vizyonunu pekiştirmek amacıyla genel merkezi Dubai'ye taşınarak uluslararası arenadaki varlığımızı güçlendirdik.</p>
+                    </div>
+                    <div class="timeline-item-circle">2019</div>
+                </div>
+
+                <!-- Milestone 2025 -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="700">
+                    <div class="timeline-item-content text-mky-text-light-primary dark:text-mky-text-dark-primary">
+                        <h3 class="font-semibold text-lg mb-2">Anadolu Efes Satın Alındı</h3>
+                        <p class="text-mky-text-light-secondary dark:text-mky-text-dark-secondary">İçecek sektöründeki lider konumumuzu pekiştiren, Türkiye'nin köklü markalarından Anadolu Efes'i bünyemize kattık.</p>
+                    </div>
+                    <div class="timeline-item-circle">2025</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Contact Section (İletişim) - EmailJS Playground yapısına uygun -->
+<section id="contact" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4 text-mky-text-light-primary dark:text-mky-text-dark-primary">İletişim</h2>
+            <p class="text-xl text-mky-text-light-secondary dark:text-mky-text-dark-secondary max-w-3xl mx-auto">
+                Bize Ulaşın ve Geleceği Birlikte Şekillendirelim
+            </p>
+        </div>
+        
+        <div class="grid lg:grid-cols-2 gap-12">
+            <!-- Contact Info & Map -->
+            <div data-aos="fade-right">
+                <h3 class="font-heading text-2xl font-bold mb-8 text-mky-text-light-primary dark:text-mky-text-dark-primary">Bizimle İletişime Geçin</h3>
+                <div class="space-y-6 mb-8">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-mky-primary-lighter dark:bg-mky-primary-darker rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-envelope text-mky-primary"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-mky-text-light-primary dark:text-mky-text-dark-primary">E-posta</h4>
+                            <p class="text-mky-text-light-secondary dark:text-mky-text-dark-secondary">info@mkyholding.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-mky-primary-lighter dark:bg-mky-primary-darker rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-phone text-mky-primary"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-mky-text-light-primary dark:text-mky-text-dark-primary">Telefon</h4>
+                            <p class="text-mky-text-light-secondary dark:text-mky-text-dark-secondary">+90 (212) 123 45 67</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-mky-primary-lighter dark:bg-mky-primary-darker rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-map-marker-alt text-mky-primary"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-mky-text-light-primary dark:text-mky-text-dark-primary">Adres</h4>
+                            <p class="text-mky-text-light-secondary dark:text-mky-text-dark-secondary">Ataşehir, İstanbul, Türkiye</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Google Maps Embed -->
+                <div class="rounded-2xl overflow-hidden shadow-lg h-64 lg:h-96 w-full mb-8">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.666141381163!2d29.10271507611849!3d40.99120612443015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac1777264871d%3A0xc3aa3891469e380e!2sAta%C5%9Fehir%2C%20%C4%B0stanbul%2C%20Turkey!5e0!3m2!1sen!2sus!4v1701700000000!5m2!1sen!2sus" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        aria-label="MKY Holding İstanbul Ofis Haritası">
+                    </iframe>
+                </div>
+                <!-- Social Media -->
+                <div class="mt-8">
+                    <h4 class="font-semibold mb-4 text-mky-text-light-primary dark:text-mky-text-dark-primary">Bizi Takip Edin</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://linkedin.com/company/mkyholding" target="_blank" aria-label="LinkedIn" class="w-10 h-10 bg-mky-bg-light-secondary dark:bg-mky-bg-dark-secondary text-mky-text-light-secondary dark:text-mky-text-dark-secondary rounded-lg flex items-center justify-center hover:bg-mky-primary hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                        <a href="https://twitter.com/mkyholding" target="_blank" aria-label="Twitter" class="w-10 h-10 bg-mky-bg-light-secondary dark:bg-mky-bg-dark-secondary text-mky-text-light-secondary dark:text-mky-text-dark-secondary rounded-lg flex items-center justify-center hover:bg-mky-primary hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="https://instagram.com/mkyholding" target="_blank" aria-label="Instagram" class="w-10 h-10 bg-mky-bg-light-secondary dark:bg-mky-bg-dark-secondary text-mky-text-light-secondary dark:text-mky-text-dark-secondary rounded-lg flex items-center justify-center hover:bg-mky-primary hover:text-white transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="https://facebook.com/mkyholding" target="_blank" aria-label="Facebook" class="w-10 h-10 bg-mky-bg-light-secondary dark:bg-mky-bg-dark-secondary text-mky-text-light-secondary dark:text-mky-text-dark-secondary rounded-lg flex items-center justify-center hover:bg-mky-primary hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Form - EmailJS Playground Compatible -->
+            <div data-aos="fade-left">
+                <div class="bg-mky-bg-light dark:bg-mky-bg-dark-secondary p-8 rounded-2xl shadow-lg">
+                    <h3 class="font-heading text-xl font-bold mb-6 text-mky-text-light-primary dark:text-mky-text-dark-primary">Bize Mesaj Gönderin</h3>
+                    
+                    <!-- EXACT EmailJS Form Structure -->
+                    <form id="emailjs-form" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="field">
+                                <label for="name" class="block text-sm font-medium mb-2 text-mky-text-light-secondary dark:text-mky-text-dark-secondary">
+                                    <i class="fas fa-user mr-2"></i>Ad Soyad
+                                </label>
+                                <input 
+                                    type="text" 
+                                    name="name" 
+                                    id="name"
+                                    required
+                                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-mky-primary focus:border-transparent bg-mky-bg-light dark:bg-gray-700 text-mky-text-light-primary dark:text-mky-text-dark-primary transition-colors"
+                                    placeholder="Adınız Soyadınız">
+                            </div>
+                            <div class="field">
+                                <label for="email" class="block text-sm font-medium mb-2 text-mky-text-light-secondary dark:text-mky-text-dark-secondary">
+                                    <i class="fas fa-envelope mr-2"></i>E-posta
+                                </label>
+                                <input 
+                                    type="email" 
+                                    name="email" 
+                                    id="email"
+                                    required
+                                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-mky-primary focus:border-transparent bg-mky-bg-light dark:bg-gray-700 text-mky-text-light-primary dark:text-mky-text-dark-primary transition-colors"
+                                    placeholder="e-posta@adresiniz.com">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="subject" class="block text-sm font-medium mb-2 text-mky-text-light-secondary dark:text-mky-text-dark-secondary">
+                                <i class="fas fa-tag mr-2"></i>Konu
+                            </label>
+                            <input 
+                                type="text" 
+                                name="subject" 
+                                id="subject"
+                                required
+                                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-mky-primary focus:border-transparent bg-mky-bg-light dark:bg-gray-700 text-mky-text-light-primary dark:text-mky-text-dark-primary transition-colors"
+                                placeholder="Mesajınızın Konusu">
+                        </div>
+                        <div class="field">
+                            <label for="message" class="block text-sm font-medium mb-2 text-mky-text-light-secondary dark:text-mky-text-dark-secondary">
+                                <i class="fas fa-comment mr-2"></i>Mesajınız
+                            </label>
+                            <textarea 
+                                name="message" 
+                                id="message"
+                                required
+                                rows="5"
+                                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-mky-primary focus:border-transparent bg-mky-bg-light dark:bg-gray-700 text-mky-text-light-primary dark:text-mky-text-dark-primary resize-none transition-colors"
+                                placeholder="Mesajınızı buraya yazın..."></textarea>
+                        </div>
+                        
+                        <!-- Hidden field for recipient email - EmailJS playground style -->
+                        <div class="field hidden">
+                            <input type="hidden" name="to_email" id="to_email" value="mustafang_58@hotmail.com"> <!-- KEEP THIS PLACEHOLDER -->
+                        </div>
+                        
+                        <button 
+                            type="submit" 
+                            id="contact-btn"
+                            class="w-full bg-mky-primary text-white py-4 px-6 rounded-lg font-semibold hover:bg-mky-primary-darker transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-mky-primary focus:ring-offset-2">
+                            <span>
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                Mesaj Gönder
+                            </span>
+                        </button>
+                        
+                        <!-- Success/Error Messages -->
+                        <div id="success-message" class="hidden text-green-600 dark:text-green-400 text-center py-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                            <i class="fas fa-check-circle mr-2"></i>
+                            Mesajınız başarıyla gönderildi!
+                        </div>
+                        <div id="error-message" class="hidden text-red-600 dark:text-red-400 text-center py-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
+                            <i class="fas fa-exclamation-circle mr-2"></i>
+                            <span id="error-text">Mesaj gönderilirken bir hata oluştu. Lütfen tekrar deneyin.</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 dark:bg-black text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Logo & Description -->
+                <div class="md:col-span-2">
+                    <div class="font-heading text-2xl font-bold mb-4 text-mky-primary-lighter">MKY Holding</div>
+                    <p class="text-gray-300 mb-6 max-w-md">
+                        MKY Holding olarak, farklı sektörlerdeki yatırımlarımızla geleceği şekillendiriyor, topluma değer katmaya devam ediyoruz.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://linkedin.com/company/mkyholding" target="_blank" aria-label="LinkedIn" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                        <a href="https://twitter.com/mkyholding" target="_blank" aria-label="Twitter" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="https://instagram.com/mkyholding" target="_blank" aria-label="Instagram" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="https://facebook.com/mkyholding" target="_blank" aria-label="Facebook" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-semibold mb-4 text-white">Hızlı Linkler</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Ana Sayfa</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">Hakkımızda</a></li>
+                        <li><a href="#sectors" class="text-gray-400 hover:text-white transition-colors">Sektörler</a></li>
+                        <li><a href="#milestones" class="text-gray-400 hover:text-white transition-colors">Dönüm Noktaları</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">İletişim</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Our Sectors in Footer -->
+                <div>
+                    <h3 class="font-semibold mb-4 text-white">Sektörlerimiz</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">Bankacılık</li>
+                        <li class="text-gray-400">Hava Yolları</li>
+                        <li class="text-gray-400">Alkollü İçecekler</li>
+                        <li class="text-gray-400">Yazılım</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; <span x-text="new Date().getFullYear()"></span> MKY Holding. Tüm Hakları Saklıdır.</p>
+                <p class="mt-2 text-sm">Halkın Adamıyız, Herkesin Yanındayız.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button 
+        x-show="showBackToTop" 
+        @click="window.scrollTo({top: 0, behavior: 'smooth'})"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 transform scale-90"
+        x-transition:enter-end="opacity-100 transform scale-100"
+        x-transition:leave="transition ease-in duration-300"
+        x-transition:leave-start="opacity-100 transform scale-100"
+        x-transition:leave-end="opacity-0 transform scale-90"
+        class="fixed bottom-8 right-8 bg-mky-primary hover:bg-mky-primary-darker text-white p-3 rounded-full shadow-lg transition-all z-40"
+        aria-label="Sayfa Başına Dön">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Alpine.js -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    
+    <!-- AOS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out',
+            once: true,
+            offset: 50
+        });
+
+        // EmailJS Contact Form Handler - Playground Compatible
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('emailjs-form');
+            const btn = document.getElementById('contact-btn');
+            const successMsg = document.getElementById('success-message');
+            const errorMsg = document.getElementById('error-message');
+            const errorText = document.getElementById('error-text');
+            
+            if (form && btn) {
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    
+                    // Change button state
+                    btn.disabled = true;
+                    btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Gönderiliyor...';
+                    
+                    // Hide previous messages
+                    successMsg.classList.add('hidden');
+                    errorMsg.classList.add('hidden');
+                    
+                    // EmailJS send - EXACT playground method
+                    const serviceID = 'service_d1ikm0r'; // KEEP THIS PLACEHOLDER
+                    const templateID = 'template_y6yjh3h'; // KEEP THIS PLACEHOLDER
+                    
+                    emailjs.sendForm(serviceID, templateID, form)
+                        .then(function(response) {
+                            console.log('EmailJS SUCCESS:', response.status, response.text);
+                            
+                            // Show success message
+                            successMsg.classList.remove('hidden');
+                            
+                            // Reset form
+                            form.reset();
+                            
+                            // Reset button
+                            btn.disabled = false;
+                            btn.innerHTML = '<span><i class="fas fa-paper-plane mr-2"></i>Mesaj Gönder</span>';
+                            
+                            // Hide success message after 5 seconds
+                            setTimeout(() => {
+                                successMsg.classList.add('hidden');
+                            }, 5000);
+                            
+                        }, function(error) {
+                            console.log('EmailJS FAILED:', error);
+                            
+                            // Show error message with details
+                            let errorMessage = 'Mesaj gönderilirken bir hata oluştu. Lütfen tekrar deneyin.';
+                            if (error.status === 422) {
+                                errorMessage = 'Geçersiz şablon veya servis yapılandırması.';
+                            } else if (error.status === 412) {
+                                errorMessage = 'E-posta servisi doğrulama hatası.';
+                            } else if (error.status === 400) {
+                                errorMessage = 'Geçersiz istek. Lütfen girdilerinizi kontrol edin.';
+                            }
+                            
+                            errorText.textContent = errorMessage;
+                            errorMsg.classList.remove('hidden');
+                            
+                            // Reset button
+                            btn.disabled = false;
+                            btn.innerHTML = '<span><i class="fas fa-paper-plane mr-2"></i>Mesaj Gönder</span>';
+                        });
+                });
+            } else {
+                console.error('EmailJS form elements not found!');
+            }
+        });
+
+        // Alpine.js store for active section (for dynamic nav links)
+        document.addEventListener('alpine:init', () => {
+            Alpine.store('activeSection', 'home');
+
+            const observerOptions = {
+                root: null, // viewport
+                rootMargin: '0px',
+                threshold: 0.5 // 50% of the section must be visible
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        Alpine.store('activeSection', entry.target.id);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section[id]').forEach(section => {
+                observer.observe(section);
+            });
+        });
+
+        // Close mobile menu when clicking outside (or on nav link)
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const hamburger = document.querySelector('.hamburger');
+            
+            // If mobile menu is open and click is outside of menu and hamburger
+            if (mobileMenu && hamburger && Alpine.raw(Alpine.data(document.body).mobileMenuOpen)) {
+                if (!mobileMenu.contains(event.target) && !hamburger.contains(event.target)) {
+                    Alpine.data(document.body).mobileMenuOpen = false;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
